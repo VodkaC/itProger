@@ -1,5 +1,21 @@
 <p>car works!</p>
 <h1>Királyság</h1>
 <h4>{{model}}</h4>
-<body>{{colors}}</body>
 <h1>Twszt</h1>
+
+<button class="btn btn-danger" (click)="carSelect('bmw')">bmw</button>
+<button class="btn btn-success" (click)="carSelect('audi')">Audi</button>
+<button class="btn btn-info" (click)="carSelect('merc')">Mercedess</button>
+
+<div>
+    {{options}}
+</div>
+
+<div class="alert alert-warning">
+    <ul>
+        <li *ngFor="let opt of options; let i = index">
+        {{i + 1}} = {{opt}}
+        </li>
+    </ul>
+</div>
+
