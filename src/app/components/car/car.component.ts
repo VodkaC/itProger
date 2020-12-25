@@ -13,6 +13,7 @@ export class CarComponent implements OnInit {
   colors:Colors;
   options:string[];
   anytype:any;
+  isEdit:boolean;
 
   constructor() { }
 
@@ -75,6 +76,10 @@ export class CarComponent implements OnInit {
         break;
       }
     }
+  }
+
+  showEdit(){
+    this.isEdit = !this.isEdit;
   }
 }
 
