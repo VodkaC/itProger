@@ -14,8 +14,20 @@
 <div class="alert alert-warning">
     <ul>
         <li *ngFor="let opt of options; let i = index">
-        {{i + 1}} = {{opt}}
+        {{i + 1}} = {{opt}} <button class="btn btn-danger btn-sm" (click)="deleteOpt(opt)">x</button>
         </li>
     </ul>
 </div>
+
+
+<h5> Возможности автомобиля </h5>
+  <form (submit)="addOpt(option.value)">
+    <div class="form-group">
+      <label for="option">Добавление новой возможности</label>
+      <input id="option" class="form-control" type="text" placeholder="Ведите что-то"
+      #option>
+      <br>
+      <button type="submit" class="btn btn-outline-success">Oke</button>
+    </div>
+  </form>
 

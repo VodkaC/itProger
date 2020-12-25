@@ -34,7 +34,7 @@ export class CarComponent implements OnInit {
       };
       this.options = ["sport package", "Manual", "MegaSport"];
     }
-   else if(carName = 'audi')
+   else if(carName == 'audi')
     {
       this.model = 'audi';
       this.name = 'RS8';
@@ -46,7 +46,7 @@ export class CarComponent implements OnInit {
       };
       this.options = ["midl packeg sport/confort", "Dsg", "LongSport"];
     }
-   else if(carName = 'merc')
+   else if(carName == 'merc')
     {
       this.model = 'mercedes';
       this.name = 's330';
@@ -57,6 +57,23 @@ export class CarComponent implements OnInit {
         wheels: 'Silver'
       };
       this.options = ["Confort", "Automata", "ConfortSport"];
+    }
+  }
+
+  addOpt(option)
+  {
+    this.options.unshift(option);
+    return false;
+  }
+
+  deleteOpt(option)
+  {
+    for(let i = 0; i < this.options.length; i++){
+      if(this.options[i] == option)
+      {
+        this.options.splice(i,1);
+        break;
+      }
     }
   }
 }
