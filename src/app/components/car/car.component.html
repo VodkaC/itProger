@@ -1,5 +1,65 @@
-<p>car works!</p>
-<h1>Királyság</h1>
-<h4>{{model}}</h4>
-<body>{{colors}}</body>
-<h1>Twszt</h1>
+<h1>itProger</h1>
+<div><br></div>
+<div class="container">
+  <button class="btn btn-danger" (click)="carSelect('bmw')">bmw</button>
+  <button class="btn btn-success" (click)="carSelect('audi')">Audi</button>
+  <button class="btn btn-info" (click)="carSelect('merc')">Mercedess</button>
+  <div><br></div>
+  <h4><mark>Автомобиль:</mark></h4>
+    <br>
+    <small> </small>
+    <div class="alert alert-success">
+      Характеристика автомобиля:
+      <ul>
+        <li>Автомобиль: <strong>{{model}}</strong></li>
+        <li>Модель: <strong>{{name}}</strong></li>
+        <li>Скорость: <strong>{{speed}}</strong></li>
+        <li>Цвет машины: <strong>{{colors.car}}</strong></li>
+        <li>Цвет салона: <strong>{{colors.salon}}</strong></li>
+        <li>Цвет колес: <strong>{{colors.wheels}}</strong></li>
+      </ul>
+      </div>
+
+  <h5>Возможности автомобиля:</h5>
+    <div class="alert alert-warning">
+        <ul>
+            <li *ngFor="let opt of options; let i = index">
+            {{i + 1}} = {{opt}} <button class="btn btn-danger btn-sm" (click)="deleteOpt(opt)">x</button>
+            </li>
+        </ul>
+    </div>
+
+  <h5>Добавление возможности:</h5>
+    <form (submit)="addOpt(option.value)">
+      <div class="form-group">
+        <label for="option">Добавить:</label>
+        <input id="option" class="form-control" type="text" placeholder="Ведите что-то"
+        #option>
+        <br>
+        <button type="submit" class="btn btn-outline-success">Oke</button>
+      </div>
+    </form>
+
+
+
+    <h5> Редактировать автомобиль </h5>
+    <button class="btn btn-danger" (click)="showEdit()">Редактировать</button>
+    <div><br></div>
+    <form *ngIf="isEdit">
+      <div class="form-group">
+        <input class="form-control" type="text" placeholder="Название машины"
+        [(ngModel)]="name" name="name"> <br>
+        <input class="form-control" type="text" placeholder="Модель машины"
+        [(ngModel)]="model" name="model"> <br>
+        <input class="form-control" type="text" placeholder="Скорость"
+        [(ngModel)]="speed" name="speed"> <br>
+        <input class="form-control" type="text" placeholder="Цвет машины"
+        [(ngModel)]="colors.car" name="car"> <br>
+        <input class="form-control" type="text" placeholder="Цвет салона"
+        [(ngModel)]="colors.salon" name="salon"> <br>
+        <input class="form-control" type="text" placeholder="Цвет колес"
+        [(ngModel)]="colors.wheels" name="wheels"> <br>
+      </div>
+    </form>
+</div>
+
